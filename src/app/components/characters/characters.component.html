@@ -1,0 +1,32 @@
+
+<div class="container">
+    <div class="col-12 text-center my-3">
+        <h1>Breaking Bad Characters</h1>
+   </div>
+   <div class="row justify-content-center">
+   <div class="col-6">
+       <div class="d-grid gap-2">
+       <input type="text" class="form-control"  placeholder="Ingrese un personaje" [(ngModel)]="nombre" (ngModelChange)="filtrar()"/>
+       <button class="btn btn-primary my-2">Buscar personaje</button>
+   </div>
+   </div>
+   </div>
+
+    <div class="row">
+        <div class="col-4 mt-4" *ngFor="let character of filtrado">
+            <div class="card">
+                <img src="{{character.img}}" alt="..." class="card-img-top">
+                <div class="card-body">
+                    <h3 class="card-title"> {{character.name}} </h3>
+                    <p class="card-text">
+                        {{character.nickname}} - {{character.birthday}} - {{character.status}}
+                    </p>
+                    <p class="card-text">
+                        {{character.occupation[0]}}
+                    </p>
+                    <a routerLink="/characters/{{character.char_id}}" class="btn btn-primary">Ver mas</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
